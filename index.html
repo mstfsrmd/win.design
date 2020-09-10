@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+  </head>
+  <body>
+    <section class="desktop">
+    <section id="context">
+      <ul id="coli">
+        <li>New</li>
+        <li>Propertice</li>
+      </ul>
+    </section>
+      <div class="dicon" id="mycom">
+        <img src="FAVPNG_windows-95-operating-systems-windows-10_fsHahwxH.png"><br><span>My Computer</span>
+      </div>
+      <div class="dicon" id="folder">
+        <img src="kisspng-8-bit-color-computer-icons-recycle-bin-5acb83bb181102.0555593715232869710986.png"><br>
+        <span style="left:29px;">New Folder</span>
+      </div>
+    </section>
+    <section class="windows" id="my_computer">
+      <nav id="c_nav">
+        <div class="but" id="ex1">&times</div>
+        <div class="but"><div id="fill"></div></div>
+        <div class="but"><div id="und"></div></div>
+        <div class="but w_name"><img src="FAVPNG_windows-95-operating-systems-windows-10_fsHahwxH.png" id="wicon">
+          <span style="position:relative ;left:41px;top:2px;">My Comuter</span></div>
+      </nav>
+    </section>
+    <section class="windows" id="folder">
+      <nav id="c_nav2">
+        <div class="but" id="ex2">&times</div>
+        <div class="but"><div id="fill2"></div></div>
+        <div class="but"><div id="und2"></div></div>
+        <div class="but w_name"><img src="FAVPNG_windows-95-operating-systems-windows-10_fsHahwxH.png" id="wicon">
+          <span style="position:relative ;left:41px;top:2px;">Folder</span></div>
+      </nav>
+    </section>
+    <section class="nav">
+      <section class="start">
+        <img src="http://s15.picofile.com/file/8407750084/FAVPNG_windows_95_microsoft_windows_windows_98_windows_me_microsoft_corporation_TVpLSBJY.png" alt=""> <b>Start</b>
+        <section class="s_menu">
+          <section class="container">
+            <div class="logo_c">
+              <section id="logo">
+                <b>Windows 98</b>
+              </section>
+            </div>
+            <section>
+              <ul id="main_menu">
+                <li><u>P</u>rogrames</li>
+                <li><u>D</u>ocuments</li>
+                <li><u>S</u>etting</li>
+                <li><u>F</u>ind</li>
+                <li id="line1"><u>R</u>un</li>
+                <li id="line2">Suspe<u>n</u>d</li>
+                <li>Sh<u>u</u>t Down</li>
+              </ul>
+            </section>
+          </section>
+        </section>
+      </section>
+    </section>
+  <script>
+    $(document).ready(function(){
+      var a = 1;
+      $(".start").on("click", function(){
+        if (a == 1) {
+          $(".start").css("borderStyle","inset");
+          $(".s_menu").css("display","block");
+          a = 2;
+        }
+        else {
+          $(".start").css("borderStyle","outset");
+          $(".s_menu").css("display","none");
+          a = 1;
+        }
+      });
+      $(".desktop").on("click", function(){
+          $(".start").css("borderStyle","outset");
+          $(".s_menu").css("display","none");
+          $("#context").css("display","none");
+      });
+      $("#mycom").on("click", function(){
+        $(".ex1").css("borderStyle","outset");
+        $("#my_computer").css("display","block");
+        $('.nav').append('<section class="oapp oapp1"></section>');
+        $('.oapp1').text('My Computer');
+      });
+      $(".ex1").on("click", function(){
+          $(".ex1").css("borderStyle","inset");
+          $(".windows").css("display","none");
+          $('.opp').remove();
+        });
+      $("#folder").on("click", function(){
+        $(".ex2").css("borderStyle","outset");
+        $("#folder").css("display","block");
+        $('.nav').append('<section class="oapp oapp2"></section>');
+        $('.oapp2').text('Folder');
+        });
+      $(".desktop").on("contextmenu", function(){
+        var x = event.pageX;
+        var y = event.pageY;
+        $("#context").css({"display":"block", "top":y+"px", "left":x+"px"});
+
+      });
+    });
+    document.addEventListener('contextmenu', event => event.preventDefault());
+  </script>
+  </body>
+</html>
